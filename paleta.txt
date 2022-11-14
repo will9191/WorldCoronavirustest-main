@@ -1,0 +1,7 @@
+.color1 { #07f9a2 };
+.color2 { #09c184 };
+.color3 { #0a8967 };
+.color4 { #0c5149 };
+.color5 { #0d192b};
+.mainColor {#1DA584};
+.constrastMainColor {#03110E};
