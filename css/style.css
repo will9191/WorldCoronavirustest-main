@@ -298,6 +298,14 @@ footer{
     padding-bottom: 70px;
 }   
 
+.chart{
+    
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+
 
 
 
@@ -417,4 +425,9 @@ footer{
     .banner-text-api p{
        display: none;
     }
+
+    .chart {
+        width: 100%; 
+      }
+    
 }

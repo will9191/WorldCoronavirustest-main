@@ -155,7 +155,9 @@ async function drawChart() {
   var json = await pie();
   var data = google.visualization.arrayToDataTable(json);
 
-  var options = {};
+  var options = {
+    backgroundColor:'#1DA584'
+  };
 
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
@@ -169,13 +171,13 @@ async function pie(){
   console.log(data);
 
   var response = [];
-  response.push(['UF', 'State']);
+  response.push(['UF', 'Deaths']);
 
   for (let i = 0; i < data.data.length; i++){
     response.push(
       [
         data.data[i].uf,
-        data.data[i].state
+        data.data[i].deaths
       ]
     );
   }
@@ -183,4 +185,26 @@ async function pie(){
   console.log(response);
 
   return response;
+}
+
+
+
+
+//TableChart
+google.charts.load('current', {'packages':['table']});
+google.charts.setOnLoadCallback(drawTable);
+
+async function drawTable() {
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'Sigla');
+  data.addColumn('string', 'Estado');
+  data.addColumn('int', 'Casos');
+  data.addColumn('int', 'Mortes');
+  data.addColumn('int', 'Suspeitos');
+  data.addColumn('int', 'Descartados');
+  data.addRows();
+
+  var table = new google.visualization.Table(document.getElementById('table_div'));
+
+  table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
 }
