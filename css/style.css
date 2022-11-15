@@ -31,7 +31,7 @@ header {
     transition: 2s;
     z-index: 10000000;
     box-shadow: 0 2px rgba(3, 3, 3, 0.356);
-    padding:30px 0px;
+    padding: 30px 0px;
 }
 
 
@@ -55,7 +55,7 @@ header .logo {
     transition: 0.6s;
     color: white;
     padding: 20px;
-    margin:0px;
+    margin: 0px;
     font-family: GROWLAND;
 }
 
@@ -66,7 +66,7 @@ header ul {
     align-items: center;
 }
 
-header ul li {  
+header ul li {
     list-style: none;
 }
 
@@ -88,6 +88,42 @@ header a:hover {
     color: #03110E;
 }
 
+
+
+/*Back-to-top*/
+.back-to-top {
+    background-color: #1f1f1f;
+    border-radius: 65px;
+    bottom: 14px;
+    box-shadow: 2px 3px 19px -2px rgba(0, 0, 0, .75);
+    color: #1DA584;
+    font-size: 35px;
+    cursor: pointer;
+    height: 70px;
+    position: fixed;
+    right: 22px;
+    width: 70px;
+    z-index: 3;
+    transition: 0.6s;
+    opacity: 0;
+
+}
+
+.back-to-top::after {
+    content: '▲';
+    transition: 0.6s;
+    display: flex;
+    justify-content: center;
+    padding-left: 1px;
+    padding-top: 10px;
+}
+
+.back-to-top:hover{
+    background-color: white;
+    
+}
+
+
 /*Banner */
 
 .banner {
@@ -99,16 +135,16 @@ header a:hover {
     background: url(../img/banner-home.png);
     background-size: cover;
     text-align: center;
-    border-bottom:1px solid #fff;
+    border-bottom: 1px solid #fff;
 }
 
-#banner-about{
+#banner-about {
     background: url(../img/banner-about.png);
     background-size: cover;
     height: 140vh;
 }
 
-#banner-team{
+#banner-team {
     background: url(../img/banner-team.png);
     background-size: cover;
 }
@@ -136,10 +172,10 @@ header a:hover {
     text-shadow: 0px 1px 0px #2f6627;
 }
 
-.banner-button a{
-    display:flex;
-    margin:0px;
-    padding:0px;    
+.banner-button a {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
     justify-content: center;
 }
 
@@ -152,19 +188,19 @@ header a:hover {
 
 /* Conteudo*/
 .main-social {
-    display:flex;
+    display: flex;
     padding: 0px;
     text-align: justify;
     justify-content: center;
-    padding:100px;
-    border-bottom:1px solid #fff;
+    padding: 100px;
+    border-bottom: 1px solid #fff;
 }
 
 .main-social-text {
     text-indent: 40px;
-    font-size: 18   px;
+    font-size: 18 px;
     text-align: justify, center;
-    padding-right:100px;
+    padding-right: 100px;
 }
 
 .main-social-text p {
@@ -178,35 +214,35 @@ header a:hover {
     display: none;
 }
 
-.main-combat-text-mobile{
+.main-combat-text-mobile {
     display: none;
 }
 
 .main-social iframe {
     margin: 10px;
-    padding-right:100px;
+    padding-right: 100px;
     float: left;
     height: 250px;
     width: 250px;
     display: flex;
-    
+
 }
 
 .main-combat {
-    display:flex;
+    display: flex;
     padding: 0px;
     background-color: #1DA584;
     color: white;
     text-align: justify;
-    padding:100px;
+    padding: 100px;
     justify-content: center;
-    border-bottom:1px solid #fff;
+    border-bottom: 1px solid #fff;
 }
 
 .main-combat iframe {
     margin: 10px;
     float: left;
-    padding-right:100px;
+    padding-right: 100px;
     height: 250px;
     width: 250px;
 }
@@ -215,7 +251,7 @@ header a:hover {
     font-size: 18px;
     text-indent: 40px;
     text-align: justify, center;
-    padding-right:100px;
+    padding-right: 100px;
 }
 
 .main-combat-text p {
@@ -226,24 +262,24 @@ header a:hover {
 }
 
 
-footer{
-    display:none;
+footer {
+    display: none;
     text-align: center;
     justify-content: center;
     align-items: center;
 }
 
-.footers{
-    display:flex;
+.footers {
+    display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
 }
 
-.footer-on{                 
+.footer-on {
     background-color: #0c514900;
     padding: 20px;
-    margin-bottom:50px;
+    margin-bottom: 50px;
     transition: 0.8s;
     box-shadow: 1px 6px 28px -1px #0c5149;
     border-radius: 28px;
@@ -257,13 +293,13 @@ footer{
     text-shadow: 0px 1px 0px #2f6627;
 }
 
-.footer-on:hover{
+.footer-on:hover {
     box-shadow: 1px 6px 28px -1px #6af5e5;
     transition: 0.8s;
     background-color: #1DA584;
 }
 
-.footer-off{
+.footer-off {
     margin-bottom: 50px;
     display: none;
     background-color: #0c514900;
@@ -281,7 +317,7 @@ footer{
     text-shadow: 0px 1px 0px #2f6627;
 }
 
-.footer-off:hover{
+.footer-off:hover {
     box-shadow: 1px 6px 28px -1px #6af5e5;
     transition: 0.8s;
     background-color: #1DA584;
@@ -289,20 +325,30 @@ footer{
 
 /*Gráficos*/
 
-.area-graficos{
+.area-graficos {
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
     padding-top: 70px;
     padding-bottom: 70px;
-}   
-
-.chart{
     
+
+    
+}
+
+
+
+#piechart{
+    background-color: #1DA584;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+}
+
+.chart {
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: 50%;  
 }
 
 
@@ -316,34 +362,43 @@ footer{
 @media (max-width: 770px) {
 
     header {
-        padding:22px 0px;
+        padding: 22px 0px;
         display: inline-flex;
         align-items: center;
         text-align: center;
         justify-content: center;
-        margin:0px;
+        margin: 0px;
     }
 
-    header ul{
-        margin:0;
-        padding:0;
+    header ul {
+        margin: 0;
+        padding: 0;
     }
 
     header .sticky {
-        display:flex;
+        display: flex;
         padding: 0px;
-        margin:0px;
-        border:0px;
+        margin: 0px;
+        border: 0px;
     }
 
     header .logo {
         display: none;
     }
 
+    .back-to-top{
+        width: 55px;
+        height: 55px;
+        font-size: 25px;
+    }
+
+    .back-to-top:hover{
+        background-color: #1f1f1f;
+    }
 
 
     .banner {
-       /* height: 700px;
+        /* height: 700px;
         width: 360px;
         */
         height: 100vh;
@@ -359,15 +414,15 @@ footer{
     .main-social {
         align-items: center;
         font-size: 15px;
-        display:flex;
+        display: flex;
         flex-direction: column;
-        margin:0px;
+        margin: 0px;
     }
 
     #main-social-iframe {
         display: flexbox;
         background-color: #1f1f1f;
-        padding:0px;
+        padding: 0px;
     }
 
     .main-social-text {
@@ -393,15 +448,15 @@ footer{
     .main-combat {
         align-items: center;
         font-size: 15px;
-        display:flex;
+        display: flex;
         flex-direction: column;
-        margin:0px;
+        margin: 0px;
     }
 
     #main-combat-iframe {
         display: flexbox;
         background-color: #1DA584;
-        padding:0px;
+        padding: 0px;
     }
 
     .main-combat-text {
@@ -422,12 +477,12 @@ footer{
         font-size: 20px;
     }
 
-    .banner-text-api p{
-       display: none;
+    .banner-text-api p {
+        display: none;
     }
 
     .chart {
-        width: 100%; 
-      }
-    
+        width: 100%;
+    }
+
 }
