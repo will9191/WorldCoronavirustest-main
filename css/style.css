@@ -118,9 +118,9 @@ header a:hover {
     padding-top: 10px;
 }
 
-.back-to-top:hover{
+.back-to-top:hover {
     background-color: white;
-    
+
 }
 
 
@@ -323,6 +323,11 @@ footer {
     background-color: #1DA584;
 }
 
+
+
+
+
+
 /*Gráficos*/
 
 .area-graficos {
@@ -332,14 +337,14 @@ footer {
     align-items: center;
     padding-top: 70px;
     padding-bottom: 70px;
-    
 
-    
+
+
 }
 
 
 
-#piechart{
+#piechart {
     background-color: #1DA584;
     width: 100%;
     border-bottom: 1px solid #fff;
@@ -348,8 +353,16 @@ footer {
 .chart {
     align-items: center;
     justify-content: center;
-    width: 50%;  
+    width: 50%;
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -386,13 +399,13 @@ footer {
         display: none;
     }
 
-    .back-to-top{
+    .back-to-top {
         width: 55px;
         height: 55px;
         font-size: 25px;
     }
 
-    .back-to-top:hover{
+    .back-to-top:hover {
         background-color: #1f1f1f;
     }
 
