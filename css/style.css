@@ -145,7 +145,7 @@ header a:hover {
 }
 
 #banner-team {
-    background: url(../img/banner-team.png);
+    background: url(../img/brazilian-flag.gif);
     background-size: cover;
 }
 
@@ -324,7 +324,29 @@ footer {
 }
 
 
+.team{
+    display: flex;
+    justify-content: center;
+}
 
+.team img{
+    transition: 0.8s;
+    margin: 10px;
+    width: 250px;
+    width: 250px;
+    border-radius: 10%;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+
+.team img:hover{
+    opacity: 1;
+}
+
+.card:hover{
+    visibility: visible;
+}
 
 
 
@@ -406,7 +428,7 @@ footer {
     }
 
     .back-to-top:hover {
-        background-color: #1f1f1f;
+        background-color: #fdfdfd;
     }
 
 
