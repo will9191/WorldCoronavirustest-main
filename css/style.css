@@ -324,12 +324,12 @@ footer {
 }
 
 
-.team{
+.team {
     display: flex;
     justify-content: center;
 }
 
-.team img{
+.team img {
     transition: 0.8s;
     margin: 10px;
     width: 250px;
@@ -340,14 +340,13 @@ footer {
 }
 
 
-.team img:hover{
+.team img:hover {
     opacity: 1;
 }
 
-.card:hover{
+.card:hover {
     visibility: visible;
 }
-
 
 
 /*Gráficos*/

@@ -1,3 +1,4 @@
+
 /* MENU */
 window.addEventListener("scroll", function () {
   var btp = this.document.querySelector('.back-to-top');
@@ -10,7 +11,7 @@ window.addEventListener("scroll", function () {
   btp.style.opacity = "0";
 
 
-  
+
   if (this.scrollY > 300) {
     btp.style.opacity = "1";
   }
