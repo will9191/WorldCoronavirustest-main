@@ -1,4 +1,5 @@
 
+
 /* MENU */
 window.addEventListener("scroll", function () {
   var btp = this.document.querySelector('.back-to-top');
@@ -187,13 +188,19 @@ async function pie() {
   console.log(data);
 
   var response = [];
-  response.push(['Country', 'Confirmed']);
+  response.push(['Status', 'Total']);
+
+  var status = [0];
+  var status = parseInt(status);
+
 
   for (let i = 0; i < data.data.length; i++) {
     response.push(
       [
-        data.data[i].country,
-        data.data[i].confirmed,
+        status += data.data[i].confirmed + data.data[i].deaths + data.data[i].recovered,
+        data == status
+       
+
 
       ]
     );
@@ -208,22 +215,21 @@ async function pie() {
 
 
 //TableChart
-/*
-google.charts.load('current', {'packages':['table']});
+
+google.charts.load('current', { 'packages': ['table'] });
 google.charts.setOnLoadCallback(drawTable);
 
 async function drawTable() {
   var data = new google.visualization.DataTable();
   data.addColumn('string', 'Sigla');
   data.addColumn('string', 'Estado');
-  data.addColumn('int', 'Casos');
-  data.addColumn('int', 'Mortes');
-  data.addColumn('int', 'Suspeitos');
-  data.addColumn('int', 'Descartados');
+  data.addColumn('string', 'Casos');
+  data.addColumn('string', 'Mortes');
+  data.addColumn('string', 'Suspeitos');
+  data.addColumn('string', 'Descartados');
   data.addRows();
 
   var table = new google.visualization.Table(document.getElementById('table_div'));
 
-  table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+  table.draw(data, { showRowNumber: true, width: '100%', height: '100%' });
 }
-*/
