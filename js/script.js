@@ -188,17 +188,23 @@ async function pie() {
   console.log(data);
 
   var response = [];
-  response.push(['Status', 'Total']);
+  response.push([ 'Total', 'Confirmed', 'Deaths', 'Recovered']);
 
   var status = [0];
   var status = parseInt(status);
+
+  var total = [0];
+  var total = parseInt(total);
 
 
   for (let i = 0; i < data.data.length; i++) {
     response.push(
       [
-        status += data.data[i].confirmed + data.data[i].deaths + data.data[i].recovered,
-        data == status
+        total += data.data[i].confirmed + data.data[i].deaths + data.data[i].recovered,
+        status = data.data[i].confirmed,
+        status = data.data[i].deaths,
+        status = data.data[i].recovered,
+        total == [total]
        
 
 
