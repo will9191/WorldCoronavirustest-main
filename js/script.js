@@ -199,18 +199,18 @@ async function pie() {
 
 
   for (let i = 0; i < data.data.length; i++) {
-      deaths += data.data[i].deaths,
+    deaths += data.data[i].deaths,
       confirmed += data.data[i].confirmed,
       recovered += data.data[i].recovered
   }
 
   response =
-  [
-    ['Status', 'Total'],
-    ['Deaths',     deaths],
-    ['Confirmed',     confirmed],
-    ['Recovered',  recovered]
-];
+    [
+      ['Status', 'Total'],
+      ['Deaths', deaths],
+      ['Confirmed', confirmed],
+      ['Recovered', recovered]
+    ];
 
   console.log(response);
 
@@ -222,20 +222,44 @@ async function pie() {
 
 //TableChart
 
-google.charts.load('current', { 'packages': ['table'] });
-google.charts.setOnLoadCallback(drawTable);
+async function table() {
+  var inf = await fetch('https://covid19-brazil-api.vercel.app/api/report/v1');
+  var data = await inf.json();
 
-async function drawTable() {
-  var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Sigla');
-  data.addColumn('string', 'Estado');
-  data.addColumn('string', 'Casos');
-  data.addColumn('string', 'Mortes');
-  data.addColumn('string', 'Suspeitos');
-  data.addColumn('string', 'Descartados');
-  data.addRows();
 
-  var table = new google.visualization.Table(document.getElementById('table_div'));
+  console.log(data);
 
-  table.draw(data, { showRowNumber: true, width: '100%', height: '100%' });
+  google.charts.load('current', { 'packages': ['table'] });
+  google.charts.setOnLoadCallback(drawTable);
+
+  var initials = 0;
+  for (let i = 0; i < data.data.length; i++) {
+    response.push(
+      [
+        initials += data.data[i].uf
+
+      ]);
+  }
+
+
+  async function drawTable() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Initials');
+    data.addColumn('string', 'States');
+    data.addColumn('string', 'Cases');
+    data.addColumn('string', 'Deaths');
+    data.addColumn('string', 'Suspects');
+    data.addColumn('string', 'Discarded');
+    data.addRows(
+      [initials]
+    );
+
+
+    var table = new google.visualization.Table(document.getElementById('table_div'));
+
+    table.draw(data, { showRowNumber: true, width: '100%', height: '100%' });
+
+    console.log(data);
+
+  }
 }
