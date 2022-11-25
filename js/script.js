@@ -172,6 +172,8 @@ async function drawChart() {
 
   var options = {
     backgroundColor: '#1DA584',
+    title: "PIE CHART WITH STATUS AND TOTAL ",
+    titlePosition: 'center',
     is3D: true,
 
   };
@@ -188,29 +190,27 @@ async function pie() {
   console.log(data);
 
   var response = [];
-  response.push([ 'Total', 'Confirmed', 'Deaths', 'Recovered']);
 
-  var status = [0];
-  var status = parseInt(status);
 
-  var total = [0];
-  var total = parseInt(total);
+
+  var deaths = 0;
+  var confirmed = 0;
+  var recovered = 0;
 
 
   for (let i = 0; i < data.data.length; i++) {
-    response.push(
-      [
-        total += data.data[i].confirmed + data.data[i].deaths + data.data[i].recovered,
-        status = data.data[i].confirmed,
-        status = data.data[i].deaths,
-        status = data.data[i].recovered,
-        total == [total]
-       
-
-
-      ]
-    );
+      deaths += data.data[i].deaths,
+      confirmed += data.data[i].confirmed,
+      recovered += data.data[i].recovered
   }
+
+  response =
+  [
+    ['Status', 'Total'],
+    ['Deaths',     deaths],
+    ['Confirmed',     confirmed],
+    ['Recovered',  recovered]
+];
 
   console.log(response);
 
