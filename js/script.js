@@ -232,26 +232,33 @@ async function table() {
   google.charts.load('current', { 'packages': ['table'] });
   google.charts.setOnLoadCallback(drawTable);
 
-  var initials = 0;
+  var initials = [0];
+  var states = [0];
+  var cases = 0;
+
+
   for (let i = 0; i < data.data.length; i++) {
     response.push(
       [
-        initials += data.data[i].uf
+        initials += data.data[i].uf,
+        states += data.data[i].states,
+        cases += data.data[i].cases
 
       ]);
   }
 
 
   async function drawTable() {
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Initials');
-    data.addColumn('string', 'States');
-    data.addColumn('string', 'Cases');
-    data.addColumn('string', 'Deaths');
-    data.addColumn('string', 'Suspects');
-    data.addColumn('string', 'Discarded');
-    data.addRows(
-      [initials]
+    var response = new google.visualization.DataTable();
+    response.addColumn('string', 'Initials');
+    response.addColumn('string', 'States');
+    response.addColumn('int', 'Cases');
+    response.addColumn('int', 'Deaths');
+    response.addColumn('int', 'Suspects');
+    response.addColumn('int', 'Discarded');
+    response.addRows(
+      [initials],
+      [states]
     );
 
 
