@@ -257,8 +257,7 @@ async function table() {
     response.addColumn('int', 'Suspects');
     response.addColumn('int', 'Discarded');
     response.addRows(
-      [initials],
-      [states]
+  
     );
 
 
