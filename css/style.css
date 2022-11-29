@@ -84,8 +84,8 @@ header a {
 }
 
 header a:hover {
-    transition: 0.5s;
-    color: #03110E;
+    transition: 0.8s;
+    color: #07f9a2;
 }
 
 
@@ -326,7 +326,7 @@ footer {
 
 .team {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 500px;
     margin-top: 100px;
     width: 100%;
@@ -349,69 +349,45 @@ footer {
     max-width: 350px;
     margin: auto;
     text-align: center;
-    background-color:  white;
-    color: black;
-    transition: 0.5s;
-    border-radius: 10px;
-    
-    
-}
-
-#id:hover{ 
-    opacity: 1;
-    background-color: #1DA584;
-    color: white;
-    
-   
-}
-
-#id img{
-    border-radius: 50%;
-}
-
-
-
-
-
-.sergio {
-    opacity: 0.8;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 85%;
-    margin: 70px;
-    padding: 40px;
-    text-align: center;
     background-color: white;
     color: black;
-    transition: 0.5s;
-    border-radius: 10px;
-    transform: 0.6s;
-}
-
-.sergio:hover{
-    transform: 0.6s;
-    opacity: 1;
-    background-color: #1DA584;
-    color: white;
-}
-
-.sergio img{
-    border-radius: 50%;
-}
-
-.sergio a{
-    background: url(../img/icon-linkedin.png);
     transition: 0.8s;
-    box-shadow: 1px 6px 28px -1px #0c5149;
-    border-radius: 50%;
-    border: 1px solid #18ab29;
-    cursor: pointer;
-    font-family: Courier New;
-    font-size: 24px;
-    font-weight: bold;
-    padding: 16px 31px;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px #2f6627;
+    border-radius: 10px;
+    border-left: solid 6px #1DA584;
 }
+
+#id .sergio:hover{
+   background-color: white;
+   border-left: solid 6px white;
+   border-top: solid 1px white;
+   border-bottom: solid 1px white;
+   border-right: solid 1px white;
+}
+
+
+
+#id:hover {
+
+    background-color: transparent;
+    transform: translateY(-10px);
+    box-shadow: 0 6px 8px #1da5838a;
+    opacity: 1;
+    transition: 0.5s;
+    color: white;
+    border-left: solid 6px #1DA584;
+    border-top: solid 1px #1DA584;
+    border-bottom: solid 1px #1DA584;
+    border-right: solid 1px #1DA584;
+
+
+}
+
+#id img {
+    border-radius: 50%;
+}
+
+
+
 
 
 
@@ -444,18 +420,28 @@ footer {
 
 }
 
-
-th{
-    background-color: black;
-    color: white;
+#table {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-.listras{
+
+th {
+    color: #07f9a2;
+    background-color: #03110E;
+
+}
+
+tr {
     background-color: #0c5149;
 }
 
-
-
+tr:nth-child(2n) {
+    color: white;
+    background-color: #0a8967;
+}
 
 
 
@@ -507,7 +493,7 @@ th{
     }
 
 
-    .banner-team{
+    .banner-team {
         width: 100%;
     }
 
@@ -595,7 +581,7 @@ th{
         display: none;
     }
 
-    .team{
+    .team {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-auto-rows: 500px;
@@ -603,17 +589,26 @@ th{
         width: 100%;
     }
 
-    .sergio{
-        width: 70%;
-        margin: auto;
-    }
 
     .chart {
-        width: 100%; 
+        width: 100%;
         min-height: 450px;
-      }
-      .row {
-        margin:0 !important;
-      }
+    }
+
+    .row {
+        margin: 0 !important;
+    }
+
+    #piechart {
+        font-family: bold;
+        height: 250px;
+    }
+
+    .area-graficos #table {
+        font-size: 14px;
+        width: 1%;
+        padding: auto;
+        margin: auto;
+    }
 
 }

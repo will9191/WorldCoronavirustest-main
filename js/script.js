@@ -172,8 +172,7 @@ async function drawChart() {
 
   var options = {
     backgroundColor: '#1DA584',
-    title: "PIE CHART WITH STATUS AND TOTAL ",
-    titlePosition: 'center',
+    colors: ['#07f9a2', '#03110E'],
     is3D: true,
 
   };
@@ -218,101 +217,47 @@ async function pie() {
 }
 
 
+//-----------------------------------------------------------------------------------------------------
+//Table Chart
+async function carregarDados() {
 
 
-//TableChart
+  await fetch('https://covid19-brazil-api.now.sh/api/report/v1')
+    .then(response => response.json())                   
+      .then(data => prepararDados(data))
 
-/*
-google.charts.load('current', { 'packages': ['table'] });
-google.charts.setOnLoadCallback(drawTable);
-
-async function drawTable() {
-  var json = await tableFetch();
-  var data = new google.visualization.DataTable(json);
-
-  data.addColumn('string', 'UF');
-  data.addColumn('string', 'State');
-  data.addColumn('number', 'Cases');
-  data.addColumn('number', 'Deaths');
-  data.addColumn('number', 'Suspects');
-  data.addColumn('number', 'Refuses');
-
-  data.addRows();
-
-
-
-
-  var table = new google.visualization.Table(document.getElementById('table_div'));
-
-  table.draw(data, { width: '100%', height: '100%' });
 }
 
-async function tableFetch() {
-  var inf = await fetch('https://covid19-brazil-api.now.sh/api/report/v1');
-  var data = await inf.json();
 
-  console.log(data);
+function prepararDados(data) {
+  if (data != null) {
+  
+    let lines = document.getElementById('lines');
+    lines.innerHTML = '';
 
-  var response = [];
+  
+    for (let i = 0; i < data['data'].length; i++) {
+      let auxLine = '';
 
+      if (i % 2 != 0)
+        auxLine = '<tr class="listra">';
+      else
+        auxLine = '<tr>';
 
-  for (let i = 0; i < data.data.length; i++) {
-    response.push(
-      [
-        data.data[i].uf,
-        data.data[i].state,
-        data.data[i].cases,
-        data.data[i].deaths,
-        data.data[i].suspects,
-        data.data[i].refuses
-      ]
-    );
+      auxLine = auxLine + 
+        '<td>' + data['data'][i].uf + '</td>' +
+        '<td>' + data['data'][i].state + '</td>' +
+        '<td>' + data['data'][i].cases + '</td>' +
+        '<td>' + data['data'][i].deaths + '</td>' +
+        '<td>' + data['data'][i].suspects + '</td>' +
+        '<td>' + data['data'][i].refuses + '</td>' +
+        '</tr>',
+
+        lines.innerHTML = lines.innerHTML + auxLine;
+    }
   }
-
-  console.table(response);
-
-  console.log(response);
-
-  return response;
-}
-*/
-
-async function carregarDados(){
-  await fetch('https://covid19-brazil-api.vercel.app/api/report/v1')
-    .then(response => response.json())
-    .then(dados => preparardados(dados))
 }
 
-  console.table(dados);
-
-function preparardados(dados) {
-  let linhas = document.getElementById('linhas');
-  linhas.innerHTML = '';
-
-  for (let i = 0; i < dados['dados'].length; i++) {
-    let auxLinha = '';
-    console.log(dados['data'][i].id);
-
-    if (i % 2 != 0)
-      auxLinha = '<tr class="listra">';
-
-    else
-      auxLinha = '<tr>';
-
-    auxLinha +=
-      '<td>' + dados['data'][i].uf + '</td>' +
-      '<td>' + dados['data'][i].state + '</td>' +
-      '<td>' + dados['data'][i].cases + '</td>' +
-      '<td>' + dados['data'][i].deaths + '</td>' +
-      '<td>' + dados['data'][i].suspects + '</td>' +
-      '<td>' + dados['data'][i].refuses + '</td>' +
-      '</tr>';
-
-    linhas.innerHTML += auxLinha;
-
-  }
-
-}
 
 document.addEventListener("DOMContentLoaded",
   function (event) {
