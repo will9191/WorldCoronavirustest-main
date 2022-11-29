@@ -35,25 +35,40 @@
     </section>
 
     <section class="area-graficos">
-            <div id="regions_div" class="chart"></div>
-        
-            <div id="piechart" class="chart"></div>
-            
-            <div id="table_div" class="chart"></div>
+        <div id="regions_div" class="chart"></div>
+
+        <div id="piechart" class="chart"></div>
+
+
+        <div id="dados" class="chart">
+            <table id="tabela-dados">
+                <thead>
+                    <tr>
+                        <th>UF</th>
+                        <th>State</th>
+                        <th>Cases</th>
+                        <th>Deaths</th>
+                        <th>Suspects</th>
+                        <th>Refuses</th>
+                    </tr>
+                </thead>
+                <tbody id="linhas"></tbody>
+            </table>
+        </div>
     </section>
 
     <div class="space-between" style="visibility: hidden;">GAMBIARRA NO CÓDIGO</div>
     <div class="footers">
-    <button class="footer-on" onclick="ButtonPower()">Copyright Information</button>
-    <button class="footer-off" onclick="ButtonOff()">Show Less</button>
+        <button class="footer-on" onclick="ButtonPower()">Copyright Information</button>
+        <button class="footer-off" onclick="ButtonOff()">Show Less</button>
     </div>
 
     <footer class="footer">
-            <h1>Copyright Information</h1>
-            <p>
-            <h2>USING API</h2> <br> https://covid19-brazil-api.now.sh/api/report/v1/countries <br>
-            https://covid19-brazil-api.vercel.app/api/report/v1
-            </p>
+        <h1>Copyright Information</h1>
+        <p>
+        <h2>USING API</h2> <br> https://covid19-brazil-api.now.sh/api/report/v1/countries <br>
+        https://covid19-brazil-api.vercel.app/api/report/v1
+        </p>
     </footer>
 
 

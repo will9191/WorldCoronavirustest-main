@@ -222,11 +222,11 @@ async function pie() {
 
 //TableChart
 
-
-google.charts.load('current', {'packages':['table']});
+/*
+google.charts.load('current', { 'packages': ['table'] });
 google.charts.setOnLoadCallback(drawTable);
 
-async  function drawTable() {
+async function drawTable() {
   var json = await tableFetch();
   var data = new google.visualization.DataTable(json);
 
@@ -236,13 +236,15 @@ async  function drawTable() {
   data.addColumn('number', 'Deaths');
   data.addColumn('number', 'Suspects');
   data.addColumn('number', 'Refuses');
-  data.addRows(27);
-  
 
-  
+  data.addRows();
+
+
+
+
   var table = new google.visualization.Table(document.getElementById('table_div'));
 
-  table.draw(data, {width: '100%', height: '100%'});
+  table.draw(data, { width: '100%', height: '100%' });
 }
 
 async function tableFetch() {
@@ -251,17 +253,18 @@ async function tableFetch() {
 
   console.log(data);
 
-  var response = [];  
+  var response = [];
+
 
   for (let i = 0; i < data.data.length; i++) {
     response.push(
       [
-          data.data[i].uf,
-          data.data[i].state,
-          data.data[i].cases,
-          data.data[i].deaths,
-          data.data[i].suspects,
-          data.data[i].refuses
+        data.data[i].uf,
+        data.data[i].state,
+        data.data[i].cases,
+        data.data[i].deaths,
+        data.data[i].suspects,
+        data.data[i].refuses
       ]
     );
   }
@@ -272,3 +275,47 @@ async function tableFetch() {
 
   return response;
 }
+*/
+
+async function carregarDados(){
+  await fetch('https://covid19-brazil-api.vercel.app/api/report/v1')
+    .then(response => response.json())
+    .then(dados => preparardados(dados))
+}
+
+  console.table(dados);
+
+function preparardados(dados) {
+  let linhas = document.getElementById('linhas');
+  linhas.innerHTML = '';
+
+  for (let i = 0; i < dados['dados'].length; i++) {
+    let auxLinha = '';
+    console.log(dados['data'][i].id);
+
+    if (i % 2 != 0)
+      auxLinha = '<tr class="listra">';
+
+    else
+      auxLinha = '<tr>';
+
+    auxLinha +=
+      '<td>' + dados['data'][i].uf + '</td>' +
+      '<td>' + dados['data'][i].state + '</td>' +
+      '<td>' + dados['data'][i].cases + '</td>' +
+      '<td>' + dados['data'][i].deaths + '</td>' +
+      '<td>' + dados['data'][i].suspects + '</td>' +
+      '<td>' + dados['data'][i].refuses + '</td>' +
+      '</tr>';
+
+    linhas.innerHTML += auxLinha;
+
+  }
+
+}
+
+document.addEventListener("DOMContentLoaded",
+  function (event) {
+    carregarDados();
+  }
+)

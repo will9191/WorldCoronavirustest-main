@@ -445,6 +445,15 @@ footer {
 }
 
 
+th{
+    background-color: black;
+    color: white;
+}
+
+.listras{
+    background-color: #0c5149;
+}
+
 
 
 
