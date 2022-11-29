@@ -222,50 +222,53 @@ async function pie() {
 
 //TableChart
 
-async function table() {
-  var inf = await fetch('https://covid19-brazil-api.vercel.app/api/report/v1');
-  var data = await inf.json();
 
+google.charts.load('current', {'packages':['table']});
+google.charts.setOnLoadCallback(drawTable);
+
+async  function drawTable() {
+  var json = await tableFetch();
+  var data = new google.visualization.DataTable(json);
+
+  data.addColumn('string', 'UF');
+  data.addColumn('string', 'State');
+  data.addColumn('number', 'Cases');
+  data.addColumn('number', 'Deaths');
+  data.addColumn('number', 'Suspects');
+  data.addColumn('number', 'Refuses');
+  data.addRows(27);
+  
+
+  
+  var table = new google.visualization.Table(document.getElementById('table_div'));
+
+  table.draw(data, {width: '100%', height: '100%'});
+}
+
+async function tableFetch() {
+  var inf = await fetch('https://covid19-brazil-api.now.sh/api/report/v1');
+  var data = await inf.json();
 
   console.log(data);
 
-  google.charts.load('current', { 'packages': ['table'] });
-  google.charts.setOnLoadCallback(drawTable);
-
-  var initials = [0];
-  var states = [0];
-  var cases = 0;
-
+  var response = [];  
 
   for (let i = 0; i < data.data.length; i++) {
     response.push(
       [
-        initials += data.data[i].uf,
-        states += data.data[i].states,
-        cases += data.data[i].cases
-
-      ]);
-  }
-
-
-  async function drawTable() {
-    var response = new google.visualization.DataTable();
-    response.addColumn('string', 'Initials');
-    response.addColumn('string', 'States');
-    response.addColumn('int', 'Cases');
-    response.addColumn('int', 'Deaths');
-    response.addColumn('int', 'Suspects');
-    response.addColumn('int', 'Discarded');
-    response.addRows(
-  
+          data.data[i].uf,
+          data.data[i].state,
+          data.data[i].cases,
+          data.data[i].deaths,
+          data.data[i].suspects,
+          data.data[i].refuses
+      ]
     );
-
-
-    var table = new google.visualization.Table(document.getElementById('table_div'));
-
-    table.draw(data, { showRowNumber: true, width: '100%', height: '100%' });
-
-    console.log(data);
-
   }
+
+  console.table(response);
+
+  console.log(response);
+
+  return response;
 }
