@@ -171,8 +171,14 @@ async function drawChart() {
   var data = google.visualization.arrayToDataTable(json);
 
   var options = {
-    backgroundColor: '#1DA584',
-    colors: ['#07f9a2', '#03110E'],
+    backgroundColor: 'transparent',
+    FontColor: 'white',
+    legend: 'bottom',
+    legendColor: 'white',
+    legendTextStyle: {
+      color: 'white',
+    },
+    colors: [ '#0c5149', '#07f9a2'],
     is3D: true,
 
   };

@@ -464,6 +464,7 @@ tr:nth-child(2n) {
         text-align: center;
         justify-content: center;
         margin: 0px;
+        
     }
 
     header ul {
@@ -478,7 +479,7 @@ tr:nth-child(2n) {
         border: 0px;
     }
 
-    header .logo {
+    header .logo{
         display: none;
     }
 
